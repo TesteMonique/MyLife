@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Oii, to com sdds</title>
+    <style>
+        body {
+            background-color: #000000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            color: #ffffff; /* Adicionado para definir a cor do texto */
+        }
+
+        * {
+            text-decoration: none;
+        }
+
+        .box {
+            font-size: 20px;
+            width: 400px;
+            border-radius: 16px;
+            background: #191919;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .button-container {
+            margin-top: 20px;
+            display: flex;
+            justify-content: space-around;
+            width: 100%;
+        }
+
+        button {
+            height: 50px;
+            width: 70px;
+            background: #fff;
+            border-radius: 5px;
+            color: #171331;
+            font-weight: 600;
+        }
+
+        /* Estilos para as estrelas */
+        .star {
+            position: absolute;
+            top: -50px;
+            width: 4px;
+            height: 4px;
+            background-color: #fff;
+            border-radius: 50%;
+            animation: fall linear;
+        }
+
+        @keyframes fall {
+            to {
+                top: 100vh;
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div style="text-align: center;">
+            <p>Oii, to preocupado com você sabia?❤️<br> achei você muito tristinha essa semana...<br>Se você não se cuidar compro uma camisa do Santos pra você! 👍</p>
+        </div>
+        <div class="button-container">
+            <a href="https://www.youtube.com/watch?v=Yo2GdogCAZc" id="yes">
+                <button>BORAA</button>
+            </a>
+            <button id="no">NUNCA</button>
+        </div>
+    </div>
+
+      
+    <script>
+        let buttonNo = document.getElementById('no');
+        let height = window.innerHeight - 50;
+        let width = window.innerWidth - 50;
+
+        buttonNo.addEventListener('mouseover', function(){
+            buttonNo.style.position = 'absolute';
+            buttonNo.style.top = Math.random() * height + 'px';
+            buttonNo.style.left = Math.random() * width + 'px';
+        });
+
+        function createStar() {
+            const star = document.createElement('div');
+            star.className = 'star';
+            star.style.left = Math.random() * window.innerWidth + 'px';
+            star.style.animationDuration = Math.random() * 1 + 1 + 's'; // Velocidade ajustada para cair mais rápido
+            document.body.appendChild(star);
+
+            // Remover a estrela após a animação terminar
+            setTimeout(() => {
+                star.remove();
+            }, 3000);
+        }
+
+        // Criar estrelas periodicamente
+        setInterval(createStar, 500); // Ajuste para que mais estrelas sejam criadas mais frequentemente
+    </script>
+</body>
+</html>
